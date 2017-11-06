@@ -9,6 +9,7 @@ import android.graphics.Path;
 import android.graphics.Point;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.hencoder.hencoderpracticedraw4.R;
@@ -21,19 +22,24 @@ public class Sample02ClipPathView extends View {
     Point point1 = new Point(200, 200);
     Point point2 = new Point(600, 200);
 
+
     public Sample02ClipPathView(Context context) {
         super(context);
+        Log.e("=====","=======Sample02ClipPathView>========(context)");
     }
 
     public Sample02ClipPathView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        Log.e("=====","=======Sample02ClipPathView>=====(context, attrs)");
     }
 
     public Sample02ClipPathView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        Log.e("=====","=======Sample02ClipPathView>=====(context, attrs, defStyleAttr)");
     }
 
     {
+        Log.e("=====","=======代码块=====");
         bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.maps);
 
         path1.addCircle(point1.x + 200, point1.y + 200, 150, Path.Direction.CW);
@@ -45,7 +51,7 @@ public class Sample02ClipPathView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        Log.e("=====","=======ondraw=====");
         canvas.save();
         canvas.clipPath(path1);
         canvas.drawBitmap(bitmap, point1.x, point1.y, paint);
